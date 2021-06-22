@@ -18,7 +18,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'reaction_type')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'chemicals_id')->textInput() ?>
+    <?php // echo $form->field($model, 'chemicals_id')->textInput() ?>
     <?php
     $chemicals = Chemicals::find()->all();
     $items = ArrayHelper::map($chemicals, 'id', 'substance_name');
@@ -26,7 +26,7 @@ use yii\widgets\ActiveForm;
         'prompt' => 'Выберите химическое вещество'
     ];
     ?>
-    <?= $form->field($model, 'chemicals')->dropDownList($items, $params) ?>
+    <?= $form->field($model, 'chemicals_id')->dropDownList($items, $params) ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>

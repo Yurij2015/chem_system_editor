@@ -42,11 +42,18 @@ class ChemicalReactionsSearch extends ChemicalReactions
     {
         $query = ChemicalReactions::find();
 
+        $query->joinWith(['chemicals']);
+
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
+
+        $dataProvider->sort->attributes['chemicals'] = [
+            'asc' => ['tbl_chemicals.substance_name' => SORT_ASC],
+            'desc' => ['tbl_chemicals.substance_name' => SORT_DESC],
+        ];
 
         $this->load($params);
 
@@ -63,7 +70,8 @@ class ChemicalReactionsSearch extends ChemicalReactions
         ]);
 
         $query->andFilterWhere(['like', 'result', $this->result])
-            ->andFilterWhere(['like', 'reaction_type', $this->reaction_type]);
+            ->andFilterWhere(['like', 'reaction_type', $this->reaction_type])
+            ->andFilterWhere(['like', 'tbl_chemicals.substance_name', $this->chemicals]);
 
         return $dataProvider;
     }

@@ -1,5 +1,8 @@
 <?php
 
+use app\models\ChemicalElements;
+use app\models\ChemicalReactions;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -12,11 +15,43 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'chemical_reactions_id')->textInput() ?>
+    <?php
+    $chemical_reactions = ChemicalReactions::find()->all();
+    $chemical_reactions_items = ArrayHelper::map($chemical_reactions, 'id', 'result');
+    $chemical_reactions_params = [
+        'prompt' => 'Выберите химическую реакцию'
+    ];
+    ?>
+    <?= $form->field($model, 'chemical_reactions_id')->dropDownList($chemical_reactions_items, $chemical_reactions_params) ?>
 
-    <?= $form->field($model, 'chemical_elements_id')->textInput() ?>
+    <?php // echo $form->field($model, 'chemical_reactions_id')->textInput() ?>
+
+    <?php
+    $chemical_elements = ChemicalElements::find()->all();
+    $chemical_elements_items = ArrayHelper::map($chemical_elements, 'id', 'symbol');
+    $chemical_elements_params = [
+        'prompt' => 'Выберите химический элемент'
+    ];
+    ?>
+    <?= $form->field($model, 'chemical_elements_id')->dropDownList($chemical_elements_items, $chemical_elements_params) ?>
+
+    <?php // echo $form->field($model, 'chemical_elements_id')->textInput() ?>
+
+    <?= $form->field($model, 'element_count')->textInput() ?>
+
+    <?php
+    $chemical_elements = ChemicalElements::find()->all();
+    $chemical_elements_items = ArrayHelper::map($chemical_elements, 'id', 'symbol');
+    $chemical_elements_params = [
+        'prompt' => 'Выберите химический элемент'
+    ];
+    ?>
+    <?= $form->field($model, 'chemical_elements_id')->dropDownList($chemical_elements_items, $chemical_elements_params) ?>
 
     <?= $form->field($model, 'chemicals_id')->textInput() ?>
+
+    <?= $form->field($model, 'chemical_count')->textInput() ?>
+
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Save'), ['class' => 'btn btn-success']) ?>

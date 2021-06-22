@@ -1,5 +1,7 @@
 <?php
 
+use yii\grid\SerialColumn;
+use yii\grid\ActionColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -22,14 +24,18 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => SerialColumn::class],
 
             'id',
             'result',
             'reaction_type',
-            'chemicals_id',
+            [
+                'attribute' => 'chemicals_id',
+                'value' => 'chemicals.substance_name'
+            ],
+//            'chemicals.substance_name',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => ActionColumn::class],
         ],
     ]); ?>
 

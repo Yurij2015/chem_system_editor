@@ -17,7 +17,7 @@ class ReactionReagentsSearch extends ReactionReagents
     public function rules()
     {
         return [
-            [['id', 'chemical_reactions_id', 'chemical_elements_id', 'chemicals_id'], 'integer'],
+            [['id', 'chemical_reactions_id', 'chemical_elements_id', 'chemicals_id', 'chemical_count', 'element_count'], 'integer'],
         ];
     }
 
@@ -61,6 +61,8 @@ class ReactionReagentsSearch extends ReactionReagents
             'chemical_reactions_id' => $this->chemical_reactions_id,
             'chemical_elements_id' => $this->chemical_elements_id,
             'chemicals_id' => $this->chemicals_id,
+            'chemical_count' => $this->chemical_count,
+            'element_count' => $this->element_count,
         ]);
 
         return $dataProvider;

@@ -10,8 +10,6 @@ use yii\grid\GridView;
 $this->title = Yii::t('translate', 'Chemical Elements');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="chemical-elements-index">
-
     <p>
         <?= Html::a(Yii::t('translate', 'Create Chemical Elements'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>

@@ -11,6 +11,8 @@ use Yii;
  * @property int $chemical_reactions_id
  * @property int $chemical_elements_id
  * @property int $chemicals_id
+ * @property int $chemical_count
+ * @property int $element_count
  *
  * @property ChemicalElements $chemicalElements
  * @property ChemicalReactions $chemicalReactions
@@ -32,8 +34,8 @@ class ReactionReagents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id'], 'required'],
-            [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id'], 'integer'],
+            [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id', 'chemical_count', 'element_count'], 'required'],
+            [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id', 'chemical_count', 'element_count'], 'integer'],
             [['chemical_elements_id'], 'exist', 'skipOnError' => true, 'targetClass' => ChemicalElements::className(), 'targetAttribute' => ['chemical_elements_id' => 'id']],
             [['chemical_reactions_id'], 'exist', 'skipOnError' => true, 'targetClass' => ChemicalReactions::className(), 'targetAttribute' => ['chemical_reactions_id' => 'id']],
             [['chemicals_id'], 'exist', 'skipOnError' => true, 'targetClass' => Chemicals::className(), 'targetAttribute' => ['chemicals_id' => 'id']],
@@ -50,6 +52,8 @@ class ReactionReagents extends \yii\db\ActiveRecord
             'chemical_reactions_id' => Yii::t('translate', 'Chemical Reactions ID'),
             'chemical_elements_id' => Yii::t('translate', 'Chemical Elements ID'),
             'chemicals_id' => Yii::t('translate', 'Chemicals ID'),
+            'chemical_count' => Yii::t('translate', 'Chemical Count'),
+            'element_count' => Yii::t('translate', 'Element Count'),
         ];
     }
 

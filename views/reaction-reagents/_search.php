@@ -23,6 +23,10 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'chemicals_id') ?>
 
+    <?= $form->field($model, 'chemical_count') ?>
+
+    <?php // echo $form->field($model, 'element_count') ?>
+
     <div class="form-group">
         <?= Html::submitButton(Yii::t('translate', 'Search'), ['class' => 'btn btn-primary']) ?>
         <?= Html::resetButton(Yii::t('translate', 'Reset'), ['class' => 'btn btn-outline-secondary']) ?>

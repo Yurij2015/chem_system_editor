@@ -20,9 +20,9 @@ $config = [
         'i18n' => [
             'translations' => [
                 'app' => [
-                    'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/messages',
-
+                    'class' => PhpMessageSource::class,
+                    'basePath' => '@app/translate',
+                    'sourceLanguage' => 'ru-RU',
                 ],
                 'translate' => [
                     'class' => PhpMessageSource::class,

@@ -33,6 +33,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'chemical_reactions_id',
             'chemical_elements_id',
             'chemicals_id',
+            'chemical_count',
+            'element_count',
         ],
     ]) ?>
 

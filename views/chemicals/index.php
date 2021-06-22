@@ -1,5 +1,7 @@
 <?php
 
+use yii\grid\ActionColumn;
+use yii\grid\SerialColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -12,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="chemicals-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(Yii::t('translate', 'Create Chemicals'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => SerialColumn::class],
 
             'id',
             'substance_name',
@@ -32,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'mass',
             'molecular_weight',
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => ActionColumn::class],
         ],
     ]); ?>
 
