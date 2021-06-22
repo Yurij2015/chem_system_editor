@@ -60,5 +60,5 @@ return [
     'Update Chemical Reactions: {name}' => '',
     'Update Chemicals: {name}' => '',
     'Update Elements Of Chemicals: {name}' => '',
-    'Update Reaction Reagents: {name}' => '',
+    'Update Reaction Reagents: {name}' => 'Обновить реагенты реакции: {name}',
 ];

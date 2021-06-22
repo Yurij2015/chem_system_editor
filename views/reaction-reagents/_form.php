@@ -44,7 +44,7 @@ use yii\widgets\ActiveForm;
     ?>
     <?= $form->field($model, 'chemicals_id')->dropDownList($chemicals_items, $chemicals_params) ?>
 
-    <?= $form->field($model, 'chemicals_id')->textInput() ?>
+    <?php // $form->field($model, 'chemicals_id')->textInput() ?>
 
     <?= $form->field($model, 'chemical_count')->textInput() ?>
 
