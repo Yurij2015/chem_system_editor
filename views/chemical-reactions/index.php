@@ -43,22 +43,23 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'value' => function ($model, $key, $index) {
-                    $res = '';
+//                    $res = [];
                     foreach ($model->reactionReagents as $k => $l) {
                         $chemical_elements = ChemicalElements::find()->where(['id' => $l->chemical_elements_id])->all();
                         $chemical_count = ReactionReagents::find()->where(['chemical_elements_id' => $l->chemical_elements_id])->all();
                         $oxidation = $chemical_elements[0]['oxidation'];
                         $count = $chemical_count[0]['element_count'];
-
 //                        $res .= Html::tag('div', $l->chemical_elements_id);
 //                        $res .= $chemical_elements[0]['oxidation'];
 //                        $res .= "<span style='color: red'>" . $chemical_count[0]['element_count'] . "</span>";
 //                        $res .= $chemical_elements[0]['symbol'];
 //                        $res .= $chemical_elements[0]['latin_name'];
-                        $res .= $oxidation * $count . "<br>";
+//                        $res .= ($oxidation * $count);
+                        $res[] = $oxidation * $count;
 
                     }
-                    return $res;
+                    print_r((array)$res);
+                    return array_sum((array)$res);
                 },
                 'format' => 'raw'
             ],
