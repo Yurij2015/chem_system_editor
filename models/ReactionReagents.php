@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "reaction_reagents".
@@ -34,7 +35,7 @@ class ReactionReagents extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id', 'chemical_count', 'element_count'], 'required'],
+            [['chemical_reactions_id'], 'required'],
             [['chemical_reactions_id', 'chemical_elements_id', 'chemicals_id', 'chemical_count', 'element_count'], 'integer'],
             [['chemical_elements_id'], 'exist', 'skipOnError' => true, 'targetClass' => ChemicalElements::className(), 'targetAttribute' => ['chemical_elements_id' => 'id']],
             [['chemical_reactions_id'], 'exist', 'skipOnError' => true, 'targetClass' => ChemicalReactions::className(), 'targetAttribute' => ['chemical_reactions_id' => 'id']],
@@ -60,7 +61,7 @@ class ReactionReagents extends \yii\db\ActiveRecord
     /**
      * Gets query for [[ChemicalElements]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getChemicalElements()
     {
@@ -70,7 +71,7 @@ class ReactionReagents extends \yii\db\ActiveRecord
     /**
      * Gets query for [[ChemicalReactions]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getChemicalReactions()
     {
@@ -80,10 +81,11 @@ class ReactionReagents extends \yii\db\ActiveRecord
     /**
      * Gets query for [[Chemicals]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getChemicals()
     {
         return $this->hasOne(Chemicals::className(), ['id' => 'chemicals_id']);
     }
+
 }

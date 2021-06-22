@@ -30,9 +30,8 @@ class ElementsOfChemicals extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'chemicals_id', 'chemical_elements_id'], 'required'],
-            [['id', 'chemicals_id', 'chemical_elements_id'], 'integer'],
-            [['id'], 'unique'],
+            [['chemicals_id', 'chemical_elements_id'], 'required'],
+            [['chemicals_id', 'chemical_elements_id'], 'integer'],
             [['chemical_elements_id'], 'exist', 'skipOnError' => true, 'targetClass' => ChemicalElements::className(), 'targetAttribute' => ['chemical_elements_id' => 'id']],
             [['chemicals_id'], 'exist', 'skipOnError' => true, 'targetClass' => Chemicals::className(), 'targetAttribute' => ['chemicals_id' => 'id']],
         ];

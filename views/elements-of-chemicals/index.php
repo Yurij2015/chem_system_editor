@@ -1,5 +1,7 @@
 <?php
 
+use yii\grid\ActionColumn;
+use yii\grid\SerialColumn;
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -12,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="elements-of-chemicals-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
     <p>
         <?= Html::a(Yii::t('translate', 'Create Elements Of Chemicals'), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -24,13 +24,26 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            ['class' => SerialColumn::class],
 
             'id',
-            'chemicals_id',
-            'chemical_elements_id',
+             [
+                'attribute' => 'chemicals_id',
+                'value' => 'chemicals.substance_name'
+            ],
+//            'chemicals.substance_name',
+//            'chemicalElements.items_name',
+            [
+                'attribute' => 'chemicalElements.symbol',
+                'value' => 'chemicalElements.symbol'
+            ],
+            [
+                'attribute' => 'chemicalElements.items_name',
+                'value' => 'chemicalElements.items_name'
+            ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+
+            ['class' => ActionColumn::class],
         ],
     ]); ?>
 

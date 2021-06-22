@@ -6,14 +6,12 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\ReactionReagents */
 
-$this->title = $model->id;
+$this->title = $model->chemicalReactions->result;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('translate', 'Reaction Reagents'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="reaction-reagents-view">
-
-    <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a(Yii::t('translate', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
@@ -30,11 +28,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'id',
-            'chemical_reactions_id',
-            'chemical_elements_id',
+            'chemicalReactions.result',
+            'chemicalElements.symbol',
+            'element_count',
             'chemicals_id',
             'chemical_count',
-            'element_count',
         ],
     ]) ?>
 

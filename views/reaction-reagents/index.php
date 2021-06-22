@@ -27,10 +27,26 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => SerialColumn::class],
 
             'id',
-            'chemical_reactions_id',
-            'chemical_elements_id',
+//            'chemical_reactions_id',
+            [
+                'attribute' => 'chemical_reactions_id',
+                'value' => 'chemicalReactions.result'
+            ],
+//            'chemical_elements_id',
+            [
+                'attribute' => 'chemicalElements.symbol',
+                'value' => 'chemicalElements.symbol'
+            ],
+            [
+                'attribute' => 'chemicalElements.oxidation',
+                'value' => 'chemicalElements.oxidation'
+            ],
             'element_count',
-            'chemicals_id',
+            [
+                'attribute' => 'chemicals.substance_name',
+                'value' => 'chemicals.substance_name'
+            ],
+//            'chemicals_id',
             'chemical_count',
             ['class' => ActionColumn::class],
         ],
