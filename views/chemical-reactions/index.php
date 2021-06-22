@@ -1,6 +1,7 @@
 <?php
 
 use app\models\ChemicalElements;
+use app\models\ElementsOfChemicals;
 use app\models\ReactionReagents;
 use yii\grid\SerialColumn;
 use yii\grid\ActionColumn;
@@ -43,22 +44,38 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ],
             [
                 'label' => 'Возможность реакции',
-                'value' => static function ($model, $key, $index) {
+                'value' => static function ($model) {
                     $res = [];
                     foreach ($model->reactionReagents as $k => $l) {
                         $chemical_elements = ChemicalElements::find()->where(['id' => $l->chemical_elements_id])->all();
-                        $chemical_count = ReactionReagents::find()->where(['chemical_elements_id' => $l->chemical_elements_id])->all();
+                        $element_count = ReactionReagents::find()->where(['id' => $l->id])->all();
+//                        $chemical_count = ReactionReagents::find()->where(['chemicals_id' => $l->chemicals_id])->all();
+//                        $chemical_elements_id = ElementsOfChemicals::find()->where(['chemicals_id' => $l->chemicals_id])->all();
+//                        $chemical_elements_item = $chemical_elements_id[0]['chemical_elements_id'];
+//                        $get_element_data = ChemicalElements::find()->where(['id' => $chemical_elements_item])->all();
+//                        print_r($chemical_count[0]['element_count']);
+//                        print_r($chemical_elements_id[0]['chemical_elements_id']);
+//                        print_r($get_element_data['items_name']);
+//                        print_r($chemical_count[0]['chemical_count']);
                         $oxidation = $chemical_elements[0]['oxidation'];
-                        $count = $chemical_count[0]['element_count'];
+                        $count = $element_count[0]['element_count'];
 //                        $res .= Html::tag('div', $l->chemical_elements_id);
-//                        $res .= $chemical_elements[0]['oxidation'];
-//                        $res .= "<span style='color: red'>" . $chemical_count[0]['element_count'] . "</span>";
-//                        $res .= $chemical_elements[0]['symbol'];
+                        $chemical_elements_oxidation = $chemical_elements[0]['oxidation'];
+//                        $res .= "<span style='color: red'>" . $element_count[0]['element_count'] . "</span>";
+                        $symbol = $chemical_elements[0]['symbol'];
 //                        $res .= $chemical_elements[0]['latin_name'];
 //                        $res .= ($oxidation * $count);
                         $res[] = $oxidation * $count;
+//                        print_r($k . " kkk<br>");
+//                        print_r($oxidation . " оксисл </br>");
+//                        print_r($symbol . " cbv </br>");
+//                        print_r($count . " количество</br>");
+//                        print_r($oxidation * $count . " res</br>");
+
                     }
-                    print_r((array)$res);
+//                    echo "<pre>";
+//                    print_r((array)$res);
+//                    echo "</pre>";
                     $result = array_sum($res);
                     if ($result < 0 || $result > 0) {
                         $support = "<span style='color: red; font-size: 12px;'>Возможна ошибка в реакции, пересмотрите реагенты реакции!</span>";

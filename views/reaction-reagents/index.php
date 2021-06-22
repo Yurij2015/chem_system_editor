@@ -42,12 +42,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => 'chemicalElements.oxidation'
             ],
             'element_count',
-            [
-                'attribute' => 'chemicals.substance_name',
-                'value' => 'chemicals.substance_name'
-            ],
-//            'chemicals_id',
-            'chemical_count',
+//            [
+//                'attribute' => 'chemicals.chemical_formula',
+//                'value' => 'chemicals.chemical_formula'
+//            ],
+////            'chemicals_id',
+//            'chemical_count',
             ['class' => ActionColumn::class],
         ],
     ]); ?>

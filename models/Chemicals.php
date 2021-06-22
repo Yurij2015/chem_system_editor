@@ -83,4 +83,5 @@ class Chemicals extends \yii\db\ActiveRecord
     {
         return $this->hasMany(ReactionReagents::className(), ['chemicals_id' => 'id']);
     }
+
 }

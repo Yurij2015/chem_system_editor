@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'symbol',
             'latin_name',
             'ram',
-            //'oxidation',
+            'oxidation',
             //'group_number',
             //'period_number',
             //'subgroup',

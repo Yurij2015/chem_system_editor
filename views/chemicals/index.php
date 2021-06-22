@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'substance_name',
             'chemical_formula',
-            'mass',
+//            'mass',
             'molecular_weight',
 
             ['class' => ActionColumn::class],
