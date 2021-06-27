@@ -39,6 +39,7 @@ class ChemicalElements extends \yii\db\ActiveRecord
             [['oxidation', 'group_number', 'period_number'], 'integer'],
             [['items_name'], 'string', 'max' => 55],
             [['symbol'], 'string', 'max' => 5],
+            ['symbol', 'match', 'pattern' => '/^[A-Z]+$/', 'message' => 'Недопустимый символ для поля'],
             [['latin_name'], 'string', 'max' => 100],
             [['ram'], 'string', 'max' => 20],
             [['subgroup'], 'string', 'max' => 30],
