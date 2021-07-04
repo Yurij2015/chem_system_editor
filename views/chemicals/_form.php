@@ -16,7 +16,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'chemical_formula')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'mass')->textInput(['maxlength' => true]) ?>
+    <?php //echo $form->field($model, 'mass')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'molecular_weight')->textInput() ?>
 

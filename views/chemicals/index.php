@@ -26,15 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => SerialColumn::class],
 
-            'id',
+            //'id',
             'substance_name',
             'chemical_formula',
 //            'mass',
-            'molecular_weight',
+            //'molecular_weight',
 
             ['class' => ActionColumn::class],
         ],
-    ]); ?>
+    ]) ?>
 
 
 </div>

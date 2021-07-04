@@ -31,8 +31,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'chemicalReactions.result',
             'chemicalElements.symbol',
             'element_count',
-            'chemicals.chemical_formula',
-            'chemical_count',
+            //'chemicals.chemical_formula',
+            //'chemical_count',
         ],
     ]) ?>
 

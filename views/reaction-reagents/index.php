@@ -26,7 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => SerialColumn::class],
 
-            'id',
+            //'id',
 //            'chemical_reactions_id',
             [
                 'attribute' => 'chemical_reactions_id',

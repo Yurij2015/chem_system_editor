@@ -39,14 +39,14 @@ use yii\widgets\ActiveForm;
     $chemicals = Chemicals::find()->all();
     $chemicals_items = ArrayHelper::map($chemicals, 'id', 'chemical_formula');
     $chemicals_params = [
-        'prompt' => 'Выберите химическое вещество'
+        //'prompt' => 'Выберите химическое вещество'
     ];
     ?>
-    <?= $form->field($model, 'chemicals_id')->dropDownList($chemicals_items, $chemicals_params) ?>
+    <?//= $form->field($model, 'chemicals_id')->dropDownList($chemicals_items, $chemicals_params) ?>
 
     <?php // $form->field($model, 'chemicals_id')->textInput() ?>
 
-    <?= $form->field($model, 'chemical_count')->textInput() ?>
+    <?//= $form->field($model, 'chemical_count')->textInput() ?>
 
 
     <div class="form-group">
