@@ -20,7 +20,6 @@ $config = [
     'language' => 'ru',
     'components' => [
 
-
         'i18n' => [
             'translations' => [
                 'app' => [

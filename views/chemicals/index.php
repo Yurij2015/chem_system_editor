@@ -12,6 +12,7 @@ use yii\grid\GridView;
 $this->title = Yii::t('translate', 'Chemicals');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="chemicals-index">
 
     <p>
