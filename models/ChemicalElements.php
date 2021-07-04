@@ -37,20 +37,18 @@ class ChemicalElements extends \yii\db\ActiveRecord
     {
         return [
             [['items_name', 'symbol', 'latin_name'], 'unique',
-//                'targetClass' => 'app\models\ChemicalElements',
-//                'message' => \Yii::t('translate', 'Комбинация атрибутов занята'),
                 'when' => function ($model, $attribute) {
                     return $model->{$attribute} !== $model->getOldAttribute($attribute);
                 },
             ],
-//            [['items_name', 'symbol', 'latin_name'], 'unique'],
+            [['items_name', 'symbol', 'latin_name'], 'required'],
             [['oxidation', 'group_number', 'period_number'], 'integer'],
             [['items_name'], 'match', 'pattern' => '/^[А-Яа-я]/', 'message' => 'Недопустимый символ для поля'],
             [['symbol'], 'string', 'max' => 5],
             ['symbol', 'match', 'pattern' => '/^[A-Za-z]+$/', 'message' => 'Недопустимый символ для поля'],
             [['latin_name'], 'match', 'pattern' => '/^[A-Za-z]/', 'message' => 'Недопустимый символ для поля'],
             [['ram'], 'string', 'max' => 20],
-            [['subgroup'], 'string', 'max' => 30],
+            [['subgroup'], 'string', 'max' => 30]
         ];
     }
 
