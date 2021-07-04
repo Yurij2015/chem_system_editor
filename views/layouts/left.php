@@ -41,16 +41,10 @@ use yii\helpers\Html;
                     ['label' => Yii::t('translate', 'Chemical Reactions'), 'url' => ['/chemical-reactions']],
                     ['label' => Yii::t('translate', 'Chemicals'), 'url' => ['/chemicals']],
                     ['label' => Yii::t('translate', 'Reaction Reagents'), 'url' => ['/reaction-reagents']],
-                   // ['label' => Yii::t('translate', 'Elements Of Chemicals'), 'url' => ['/elements-of-chemicals']],
-
-
-
-
+                    ['label' => Yii::t('translate', 'Elements Of Chemicals'), 'url' => ['/elements-of-chemicals']],
 //                    ['label' => 'Войти', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
                 ],
             ]
         ) ?>
-
     </section>
-
 </aside>

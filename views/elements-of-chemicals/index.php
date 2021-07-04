@@ -41,8 +41,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute' => 'chemicalElements.items_name',
                 'value' => 'chemicalElements.items_name'
             ],
-
-
+            [
+                'attribute' => 'chemicalElements.oxidation',
+                'value' => 'chemicalElements.oxidation'
+            ],
             ['class' => ActionColumn::class],
         ],
     ]); ?>

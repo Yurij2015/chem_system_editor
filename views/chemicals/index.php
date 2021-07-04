@@ -1,5 +1,7 @@
 <?php
 
+use app\models\ChemicalElements;
+use app\models\ElementsOfChemicals;
 use yii\grid\ActionColumn;
 use yii\grid\SerialColumn;
 use yii\helpers\Html;
@@ -32,10 +34,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'chemical_formula',
 //            'mass',
             //'molecular_weight',
-
+            [
+                'label' => 'Проверка вещества',
+                'value' => static function ($model) {
+                    $res = 0;
+                    foreach ($model->elementsOfChemicals as $k => $l) {
+                        $chemical_elements = ChemicalElements::find()->where(['id' => $l->chemical_elements_id])->all();
+                        $chemical_elements_oxidation = $chemical_elements[0]['oxidation'];
+                        $res += $chemical_elements_oxidation;
+                    }
+                    if ($res < 0 || $res > 0) {
+                        $support = "<span style='color: red; font-size: 12px;'>Возможна ошибка вещества, пересмотрите елементы формулы вещества!</span>";
+                    } else {
+                        $support = "<span style='color: blue; font-size: 12px;'>Вещество без ошибок!</span>";
+                    }
+                    return $res . " " . $support;
+                },
+                'format' => 'raw'
+            ],
             ['class' => ActionColumn::class],
         ],
     ]) ?>
-
-
 </div>
