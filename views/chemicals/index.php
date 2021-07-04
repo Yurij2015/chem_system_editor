@@ -38,17 +38,19 @@ $this->params['breadcrumbs'][] = $this->title;
                 'label' => 'Проверка вещества',
                 'value' => static function ($model) {
                     $res = 0;
+                    $elements = [];
                     foreach ($model->elementsOfChemicals as $k => $l) {
                         $chemical_elements = ChemicalElements::find()->where(['id' => $l->chemical_elements_id])->all();
                         $chemical_elements_oxidation = $chemical_elements[0]['oxidation'];
                         $res += $chemical_elements_oxidation;
+                        $elements[] = $chemical_elements[0]['symbol'];
                     }
-                    if ($res < 0 || $res > 0) {
+                    if ($res < 0 || $res > 0 || count(array_unique($elements)) === 0) {
                         $support = "<span style='color: red; font-size: 12px;'>Возможна ошибка вещества, пересмотрите елементы формулы вещества!</span>";
                     } else {
                         $support = "<span style='color: blue; font-size: 12px;'>Вещество без ошибок!</span>";
                     }
-                    return $res . " " . $support;
+                    return $res . " " . $support . " " . count(array_unique($elements));
                 },
                 'format' => 'raw'
             ],
