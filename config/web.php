@@ -85,6 +85,8 @@ $config = [
             'showScriptName' => false,
             'rules' => [
                 '/' => '/chemical-elements', // Контроллер/экшн
+                '/user' => '/user/chemical-elements', // Контроллер/экшн
+
             ],
         ],
 

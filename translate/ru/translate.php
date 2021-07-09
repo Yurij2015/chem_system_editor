@@ -61,4 +61,6 @@ return [
     'Update Chemicals: {name}' => 'Обновить химическое вещество: {name}',
     'Update Elements Of Chemicals: {name}' => 'Обновить элементы химического вещества: {name}',
     'Update Reaction Reagents: {name}' => 'Обновить реагенты реакции: {name}',
+    'User Panel' => 'Панель пользователя',
+    'Admin Panel' => 'Панель админа'
 ];

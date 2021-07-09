@@ -43,6 +43,8 @@ use yii\helpers\Html;
                     ['label' => Yii::t('translate', 'Reaction Reagents'), 'url' => ['/user/reaction-reagents']],
 //                    ['label' => Yii::t('translate', 'Elements Of Chemicals'), 'url' => ['/elements-of-chemicals']],
 //                    ['label' => 'Войти', 'url' => ['/site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => Yii::t('translate', 'Admin Panel'), 'url' => ['/']],
+
                 ],
             ]
         ) ?>
