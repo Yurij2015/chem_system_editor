@@ -35,6 +35,12 @@ class Chemicals extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['substance_name', 'chemical_formula'], 'unique',
+                'when' => function ($model, $attribute) {
+                    return $model->{$attribute} !== $model->getOldAttribute($attribute);
+                },
+            ],
+            [['substance_name', 'chemical_formula'], 'required'],
             [['molecular_weight'], 'integer'],
             [['substance_name'], 'string', 'max' => 155],
             [['chemical_formula'], 'string', 'max' => 250],
