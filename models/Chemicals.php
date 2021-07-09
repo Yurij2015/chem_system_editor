@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 
 /**
  * This is the model class for table "chemicals".
@@ -16,6 +17,7 @@ use Yii;
  * @property ChemicalReactions[] $chemicalReactions
  * @property ElementsOfChemicals[] $elementsOfChemicals
  * @property ReactionReagents[] $reactionReagents
+ * @property string $molformat
  */
 class Chemicals extends \yii\db\ActiveRecord
 {
@@ -57,7 +59,7 @@ class Chemicals extends \yii\db\ActiveRecord
     /**
      * Gets query for [[ChemicalReactions]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getChemicalReactions()
     {
@@ -67,7 +69,7 @@ class Chemicals extends \yii\db\ActiveRecord
     /**
      * Gets query for [[ElementsOfChemicals]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getElementsOfChemicals()
     {
@@ -77,7 +79,7 @@ class Chemicals extends \yii\db\ActiveRecord
     /**
      * Gets query for [[ReactionReagents]].
      *
-     * @return \yii\db\ActiveQuery
+     * @return ActiveQuery
      */
     public function getReactionReagents()
     {

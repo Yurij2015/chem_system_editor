@@ -1,5 +1,6 @@
 <?php
 
+use app\modules\user\Module;
 use yii\log\FileTarget;
 use yii\swiftmailer\Mailer;
 use app\models\User;
@@ -18,8 +19,12 @@ $config = [
         '@npm' => '@vendor/npm-asset',
     ],
     'language' => 'ru',
+    'modules' => [
+        'user' => [
+            'class' => Module::class,
+        ],
+    ],
     'components' => [
-
         'i18n' => [
             'translations' => [
                 'app' => [
